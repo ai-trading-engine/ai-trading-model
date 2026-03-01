@@ -7,7 +7,7 @@ from feature_engineering import add_features
 
 app = FastAPI()
 
-model = joblib.load("ai_signal_model.pkl")
+model = joblib.load("ai_signal_model.json")
 
 FEATURE_COLUMNS = [
     "rsi",
