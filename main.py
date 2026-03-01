@@ -29,7 +29,14 @@ def fetch_live_data():
     }
 
     response = requests.get(url, params=params)
+
+    if response.status_code != 200:
+        raise Exception(f"API Error: {response.status_code} - {response.text}")
+
     data = response.json()
+
+    if "prices" not in data:
+        raise Exception(f"Unexpected API response: {data}")
 
     prices = data["prices"]
     volumes = data["total_volumes"]
