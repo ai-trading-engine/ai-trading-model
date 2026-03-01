@@ -4,13 +4,13 @@ import joblib
 from xgboost import XGBClassifier
 from feature_engineering import add_features, create_target
 
-def fetch_coingecko_data(coin_id="bitcoin", days=180):
+def fetch_coingecko_data(coin_id="bitcoin", days=90):
     url = f"https://api.coingecko.com/api/v3/coins/{coin_id}/market_chart"
 
     params = {
         "vs_currency": "usd",
         "days": days,
-        "interval": "hourly"
+       # "interval": "hourly"
     }
 
     response = requests.get(url, params=params)
@@ -28,7 +28,7 @@ def fetch_coingecko_data(coin_id="bitcoin", days=180):
 
 
 # Fetch data
-df = fetch_coingecko_data("bitcoin", 180)
+df = fetch_coingecko_data("bitcoin", 90)
 
 # Add features
 df = add_features(df)
