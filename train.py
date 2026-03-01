@@ -61,6 +61,6 @@ model = XGBClassifier(
 
 model.fit(X, y)
 
-joblib.dump(model, "ai_signal_model.pkl")
+joblib.dump(model, "ai_signal_model.json")
 
 print("✅ Model trained and saved.")
